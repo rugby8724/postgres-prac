@@ -1,10 +1,12 @@
 // set a configuration for what or where we want
 // to connect the database 
 
-import pg from 'pg'
-const {Pool} = pg;
+const {Pool} = require('pg')
+const dotenv = require('dotenv')
 
-const password = process.env.POSTGES_ACCESS
+dotenv.config()
+
+const password = (process.env.POSTGES_ACCESS)
 
 const pool = new Pool({
   user: "postgres",
@@ -14,4 +16,4 @@ const pool = new Pool({
   port: 5432
 })
 
-export default pool;
+module.exports = pool
